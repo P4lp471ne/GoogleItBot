@@ -1,7 +1,7 @@
 import Bot
 import time
 
-token = "925383574:AAEhN5gyTBglxUw9Z4oS_C1QshTR9M2uj5k"
+token = ""
 
 def compose_link(req:str):
     req = req[req.find("/link") + 5:]
