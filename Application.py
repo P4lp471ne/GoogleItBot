@@ -23,6 +23,9 @@ if __name__ == "__main__":
             print(i["text"])
             if i["chat"]["type"] != "private":
                 bot.delete_message(i["chat"]["id"], i["message_id"])
-                bot.send_message(int(i["chat"]["id"]), compose_link(i["text"]), i["reply_to_message"]["message_id"])
+                try:
+                    bot.send_message(int(i["chat"]["id"]), compose_link(i["text"]), i["reply_to_message"]["message_id"])
+                except KeyError:
+                    bot.bot.send_message(int(i["chat"]["id"]), compose_link(i["text"]))
             else:
                 bot.send_message(int(i["chat"]["id"]), compose_link(i["text"]))
